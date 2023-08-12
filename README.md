@@ -6,3 +6,6 @@ Rural communities in agricultural regions across the United States are increasin
 
 ### Implementation Details:
 This method is based on the idea of Graph Attention Networks (GATs) and borrows heavily in terms of implementation from [A. Deng. et al.](https://github.com/d-ailin/GDN). We implement two versions of the model: one that uses expert knowledge to build an apriori graph structure that the model learns attention weights of, and the other that completely learns a graph structure for the system. Through evaluation on a test dataset, and RMSE values for the prediction of Salt Passage and Permeate Nitrate Concentration for the system, we show that specifying an expert-defined graph structure is useful towards faster convergence to a better predictive model for the system parameters. 
+
+### Raw Data:
+The raw data used in this work can be downloaded from this [Google Drive Link](https://drive.google.com/file/d/1c9zPA3zY_nAEzemq2m4tjUBMUoUfyepS/view?usp=sharing) 
