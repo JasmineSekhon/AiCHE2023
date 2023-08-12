@@ -9,3 +9,12 @@ This method is based on the idea of Graph Attention Networks (GATs) and borrows 
 
 ### Raw Data:
 The raw data used in this work can be downloaded from this [Google Drive Link](https://drive.google.com/file/d/1c9zPA3zY_nAEzemq2m4tjUBMUoUfyepS/view?usp=sharing) 
+Preprocessing:
+- The raw data is resampled to one per 5s frequency, and missing values are interpolated. Invalid values (such as Salt Passage % less than 0 or greater than 100) are appropriately handled.
+- The raw data by itself does not have shutdown or startup states defined, so additional RO State Shutdown and RO State Startup are defined using the last 1000 RO State 2 values and the first 1000 RO State 2 values.
+- The raw data is filtered to include only parameters: 'PT4-HP Concentrate (psig)', 'FTF-Raw Feed Inflow (gpm)',
+             'PT2-RO Pump Inlet(psig)', 'PT3-RO Pump Outlet (psig)', 'PT5-Permeate (psig)', 'Permeate Flux (gfd)', 'FT1-Inlet (gpm)',
+             'FT2-Recycle (gpm)', 'CT1-Feed (uS)', 'CT2-Permeate (uS)', 'NT1-Permeate (ppm NO3-N)',
+             'Salt Passage (%)', 'RO State'. PT3 and PT4 are further replaced by transmembrane pressure (mean(PT3, PT4)).
+- Training, Validation, Test Splits are created per RO State and the data is scaled using MinMaxScaler from sklearn.
+  
