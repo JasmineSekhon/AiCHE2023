@@ -17,4 +17,18 @@ Preprocessing:
              'FT2-Recycle (gpm)', 'CT1-Feed (uS)', 'CT2-Permeate (uS)', 'NT1-Permeate (ppm NO3-N)',
              'Salt Passage (%)', 'RO State'. PT3 and PT4 are further replaced by transmembrane pressure (mean(PT3, PT4)).
 - Training, Validation, Test Splits are created per RO State and the data is scaled using MinMaxScaler from sklearn.
-  
+
+### Training:
+For training the model, follow the following steps:
+- Modify the hyperparameters as needed in the run.sh script. Hyperparameters to tune: hidden_dim, out_dim, num_layers, decay 
+- To run the training for a certain mode run:
+	```sh run.sh cpu 2_modified apriori```
+The apriori argument implies that we use the apriori specified graph structure, 2_modified implies that we are training the model for RO state 2(production) with the mean(PT3, PT4) parameter as a feature as opposed to PT3, PT4 separately 
+- For other modes run:
+```sh run.sh cpu 4_modified apriori```
+```sh run.sh cpu 5_modified apriori```
+```sh run.sh cpu -1_modified apriori```
+```sh run.sh cpu -2_modified apriori```
+For the comparison with the completely learnable graph structure, we would run:
+```sh run.sh cpu 2_modified learnable``` , etc. 
+Ideally we would want to run the training for learnable graph structure after the model with the apriori graph structure is hyperparameter-tuned so we can compare the RMSE for the same hyperparameters for a fair comparison  
