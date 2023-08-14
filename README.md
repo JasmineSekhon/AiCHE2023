@@ -18,6 +18,10 @@ Preprocessing:
              'Salt Passage (%)', 'RO State'. PT3 and PT4 are further replaced by transmembrane pressure (mean(PT3, PT4)).
 - Training, Validation, Test Splits are created per RO State and the data is scaled using MinMaxScaler from sklearn.
 
+### Preprocessed Data:
+The preprocessed data can be downloaded from this [link](https://drive.google.com/drive/folders/1o3ViDfOzDEfdQwf3FW3bs5Iv0egsDUOx)
+Ideally, the data should be in the same directory as the run.sh file with the following format: data/<rostate>_modified/train; data/<rostate>_modified/val; data/<rostate>_modified/test
+
 ### Training:
 For training the model, follow the following steps:
 - Modify the hyperparameters as needed in the run.sh script. Hyperparameters to tune: hidden_dim, out_dim, num_layers, decay 
